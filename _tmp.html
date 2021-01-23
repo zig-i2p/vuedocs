@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
+    <link href="/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="/site.webmanifest" rel="manifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Tips | Cheat sheets | Linux Command Library</title>
+    <meta name="description" content="Handy cheat sheets with linux tips and terminal basics.">
+    <meta name="keywords" content="linux,cmd,useful,terminal,tips,cheat">
+    <meta name="author" content="Simon Schubert">
+    <meta property="og:title" content="Tips | Cheat sheets | Linux Command Library">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://linuxcommandlibrary.com/tips">
+    <meta property="og:image" content="http://linuxcommandlibrary.com/images/preview.jpg">
+    <meta property="og:description" content="Handy cheat sheets with linux tips and terminal basics.">
+    <meta property="og:site_name" content="Linux Command Library">
+    <meta property="og:locale" content="en">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Tips | Cheat sheets | Linux Command Library">
+    <meta property="twitter:description" content="Handy cheat sheets with linux tips and terminal basics.">
+    <meta property="twitter:image" content="http://linuxcommandlibrary.com/images/preview.jpg">
+    <link rel="Stylesheet" type="text/css" href="/stylesheets/main.css?v=4">
+    <link rel="Stylesheet" type="text/css" href="/stylesheets/code.css?v=4">
+    <script src="/scripts/copy.js?v=4"></script>
+    <noscript>
+      <style>.copy-button { display: none; }</style>
+    </noscript>
+  </head>
+  <body>
+    <nav><a href="/" title="logo"><i style="background-image: url(&quot;/images/logo.png&quot;);" class="logo-icon"></i></a>
+      <div class="title"><span>Linux</span><br><span>Command</span><br><span>Library</span></div>
+      <ul>
+        <li><a href="/">
+            <div><i style="background-image: url(&quot;/images/icon-search.svg&quot;);"></i>Commands</div>
+          </a></li>
+        <li><a href="/basics">
+            <div><i style="background-image: url(&quot;/images/icon-puzzle.svg&quot;);"></i>Basics</div>
+          </a></li>
+        <li><a href="/tips">
+            <div class="selected"><i style="background-image: url(&quot;/images/icon-idea.svg&quot;);"></i>Tips</div>
+          </a></li>
+      </ul>
+    </nav>
+    <h1>Tips</h1>
+    <div class="masonry">
+      <div class="code-group">
+        <h2><a href="/tips#1" id="1">Clear and reset the terminal</a></h2>
+<span>To clear the terminal use the command below or press Ctrl+L on your keyboard.</span><br>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/clear">clear</a></span>
+          <div onclick="javascript:copy('clear')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+<br><span>If you screw up the screen by e.g. accidentally reading a binary file with with cat or less you might reinitialisation the terminal with the reset command.</span><br>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/reset">reset</a></span>
+          <div onclick="javascript:copy('reset')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+<br></div>
+      <div class="code-group">
+        <h2><a href="/tips#2" id="2">List of recent commands</a></h2>
+<span>Use the history command to list all recent commands.</span><br>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/history">history</a></span>
+          <div onclick="javascript:copy('history')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+<br><span>Search command history for query.</span><br>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/history">history</a> | grep [query]</span>
+          <div onclick="javascript:copy('history | grep [query]')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+<br><span>or press ctrl + r to search and execute commands from the history.</span><br></div>
+      <div class="code-group">
+        <h2><a href="/tips#3" id="3">Close a frozen window/application</a></h2>
+<span>Execute the command and click on the frozen window.</span><br>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/xkill">xkill</a> # x11 window</span>
+          <div onclick="javascript:copy('xkill # x11 window')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+<br><span>Or find the process id of an application and kill it.</span><br>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/ps">ps</a> ax |  <a href="/man/grep">grep</a> firefox<br>
+[processID] ?? S 0:00.22 firefox<br>
+$  <a href="/man/kill">kill</a> [processID]</span>
+          <div onclick="javascript:copy('ps ax | grep firefox')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+<br></div>
+      <div class="code-group">
+        <h2><a href="/tips#4" id="4">Tab Completion</a></h2>
+<span>This might save you a lot of time. If you e.g. want to delete a file with a very long name you can type the first few characters of the name and press TAB to auto complete the name. If there are more then one possibilities and you press TAB twice you get a list of all possibilities.</span><br></div>
+      <div class="code-group">
+        <h2><a href="/tips#10" id="10">Redirection</a></h2>
+<span>You can redirect standard input, output and error by adding these sequences after a command.</span><br><table><tr><td><b>&gt;</b></td><td>send output to file (overwriting and destroying whatever is in the file already)</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/echo">echo</a> &quot;Write output to file&quot; &gt; example.txt</span>
+          <div onclick="javascript:copy('echo &quot;Write output to file&quot; &gt; example.txt')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>&gt;&gt;</b></td><td>append output to file</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/echo">echo</a> &quot;Append this to file&quot; &gt;&gt; example.txt</span>
+          <div onclick="javascript:copy('echo &quot;Append this to file&quot; &gt;&gt; example.txt')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>&lt;</b></td><td>take input from file</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/cowsay">cowsay</a> &lt; example.txt</span>
+          <div onclick="javascript:copy('cowsay &lt; example.txt')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>2&gt;</b></td><td>send error messages to file (overwriting). (This means that errors can be directed separately from normal output.)</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/rm">rm</a> -vf folder1 file1 &gt; out.txt 2&gt; err.txt</span>
+          <div onclick="javascript:copy('rm -vf folder1 file1 &gt; out.txt 2&gt; err.txt')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr></table>      </div>
+      <div class="code-group">
+        <h2><a href="/tips#5" id="5">View file permissions</a></h2>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/ls">ls</a> -l [file]</span>
+          <div onclick="javascript:copy('ls -l [file]')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+<br><span><b>1</b> = File type: \'-\' for a regular file, \'d\' for a directory, \'l\' for a symbolic link.<br>
+<b>2</b> = Owner permission<br>
+<b>3</b> = Group permission<br>
+<b>4</b> = Other permission</span><br><span>In the shown example the user has read, write and execute permission but the group and other has only read permissions.</span><br></div>
+      <div class="code-group">
+        <h2><a href="/tips#6" id="6">Modify file permissions</a></h2>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/chmod">chmod</a> [modification] [file]</span>
+          <div onclick="javascript:copy('chmod [modification] [file]')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+<br><span>Example: Give the group read and write access to the test.txt file.</span><br>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/chmod">chmod</a> g+rw test.txt</span>
+          <div onclick="javascript:copy('chmod g+rw test.txt')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+<br><span>Permission groups:<br>
+<b>u</b> = Owner<br>
+<b>g</b> = Group<br>
+<b>o</b> = Other</span><br><span>Permission types:<br>
+<b>r</b> = Read<br>
+<b>w</b> = Write<br>
+<b>x</b> = Execute</span><br><span>Operators for the modification command are + (plus) and – (minus).</span><br></div>
+      <div class="code-group">
+        <h2><a href="/tips#7" id="7">Set file permissions via binary references</a></h2>
+<span>Example: Give the owner read and write permission, the group read permission and no permission to other.</span><br>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/chmod">chmod</a> 640 test.txt</span>
+          <div onclick="javascript:copy('chmod 640 test.txt')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+<br><span>The first number represents the <b>owner</b> permission, the second the <b>group</b> permissions and the last number for all other users. The numbers are a binary representation of the <b>rwx</b> string.<br>
+<b>r = 4</b><br>
+<b>w = 2</b><br>
+<b>x = 1</b></span><br></div>
+      <div class="code-group">
+        <h2><a href="/tips#8" id="8">Cursor navigation</a></h2>
+<span><b>ctrl + u</b> = Clear everything before the cursor<br>
+<b>ctrl + a</b> = To beginning of line<br>
+<b>ctrl + e</b> = To end of line<br>
+<b>ctrl + b</b> = Back one word<br>
+<b>ctrl + f</b> = Forward one word<br>
+<b>ctrl + w</b> = Cut last word<br>
+<b>ctrl + k</b> = Clear everything after cursor<br>
+<b>ctrl + _</b> = Undo</span><br></div>
+      <div class="code-group">
+        <h2><a href="/tips#9" id="9">Special characters in commands</a></h2>
+<span>Shell special characters are interpreted by the shell as soon as it is given the command. For example, if you type ls *.bak, the shell translates *.bak to the list of all files in the current folder whose names end in .bak. The ls command never sees the asterisk. So if you want to search for files which actually have an asterisk in their names, you have to escape the asterisk to stop the shell from interpreting it.</span><br><table><tr><td><b>\</b></td><td>escapes itself and other specials</td></tr><tr><td><b>*</b></td><td>stands for anything (including nothing)</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/find">find</a> ex*.txt</span>
+          <div onclick="javascript:copy('find ex*.txt')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>?</b></td><td>stands for any single character</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/find">find</a> ex?mple.txt</span>
+          <div onclick="javascript:copy('find ex?mple.txt')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>[]</b></td><td>encloses patterns for matching a single character</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/find">find</a> ex[abc]mple.txt</span>
+          <div onclick="javascript:copy('find ex[abc]mple.txt')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>()</b></td><td>runs the contents of the parentheses in a sub-shell</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/pwd">pwd</a> &amp;&amp; ( <a href="/man/cd">cd</a> /etc) &amp;&amp;  <a href="/man/pwd">pwd</a><br>
+/home/simon<br>
+/home/simon</span>
+          <div onclick="javascript:copy('pwd &amp;&amp; (cd /etc) &amp;&amp; pwd')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>;</b></td><td>terminates a command pipeline - use it to separate commands on a single line</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/echo">echo</a> Hi ;  <a href="/man/uname">uname</a><br>
+Hi<br>
+Linux</span>
+          <div onclick="javascript:copy('echo Hi ; uname')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>' '</b></td><td>The contents of the single quotes are passed to the command without any interpretation.</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/find">find</a> '(echo abc)'*<br>(echo abc).txt</span>
+          <div onclick="javascript:copy('find &amp;#039;(echo abc)&amp;#039;*')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>` `</b></td><td>The contents of the backquotes are run as a command and its output is used as part of this command</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/echo">echo</a> ` <a href="/man/uname">uname</a>` Linux</span>
+          <div onclick="javascript:copy('echo `uname` Linux')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b> &quot;&quot;</b></td><td>The contents of the quotes are treated as one argument; any specials inside the quotes, except for $ and ``, are left uninterpreted.</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/cd">cd</a> &quot;untitled folder&quot;</span>
+          <div onclick="javascript:copy('cd &quot;untitled folder&quot;')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>|</b></td><td>Pipes allow you to send the output of a command to another command.</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/fortune">fortune</a> |  <a href="/man/cowsay">cowsay</a></span>
+          <div onclick="javascript:copy('fortune | cowsay')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>&amp;</b></td><td>Run a command in the background.</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/cowsay">cowsay</a> &amp;</span>
+          <div onclick="javascript:copy('cowsay &amp;')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>&amp;&amp;</b></td><td>Only execute the second command if the first one was successful.</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/ping">ping</a> localhost -c 1 &amp;&amp;  <a href="/man/cowsay">cowsay</a> great</span>
+          <div onclick="javascript:copy('ping localhost -c 1 &amp;&amp; cowsay great')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>||</b></td><td>Only execute the second command if the first one was unsuccessful.</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/ping">ping</a> &quot;not.reachable&quot; -c 1 ||  <a href="/man/cowsay">cowsay</a> sorry</span>
+          <div onclick="javascript:copy('ping &quot;not.reachable&quot; -c 1 || cowsay sorry')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>&gt;&gt;</b></td><td>These symbols are used for redirection.</td></tr><tr><td><b>!!</b></td><td>Repeat the last command</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/sudo">sudo</a> !!</span>
+          <div onclick="javascript:copy('sudo !!')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>!*</b></td><td>Change command keep all arguments</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/head">head</a>  <a href="/man/history">history</a> |  <a href="/man/grep">grep</a> query<br>
+$ !*  <a href="/man/tail">tail</a><br>
+ <a href="/man/tail">tail</a>  <a href="/man/history">history</a> |  <a href="/man/grep">grep</a> query</span>
+          <div onclick="javascript:copy('head history | grep query')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>^</b></td><td>Quick history substitution, changing one string to another.</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/ls">ls</a> *.png<br>toast.png<br>$ ^png^xcf^<br> <a href="/man/ls">ls</a> *.xcf<br>bread.xcf</span>
+          <div onclick="javascript:copy('ls *.png')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr><tr><td><b>#</b></td><td>Turns the line into a comment; the line is not processed in any way.</td></tr><tr><td></td><td>
+        <div class="code-wrapper"><span class="code">$  <a href="/man/whatis">whatis</a>  <a href="/man/xdotool">xdotool</a> # hint: has sth todo with X11</span>
+          <div onclick="javascript:copy('whatis xdotool # hint: has sth todo with X11')" class="copy-button"><img src="/images/icon-copy.svg" alt="copy"></div>
+        </div>
+</td></tr></table><span>Don't confuse shell special characters with special characters in regular expressions. Regular expressions must be protected from the shell by enclosing them in single quotes.</span><br></div>
+    </div>
+    <div class="tooltip"><b>Copied to clipboard</b></div>
+    <div class="server-button"><a href="https://www.digitalocean.com/?refcode=8335c6eec62d" target="_blank"><img src="/images/digitalocean.jpg" alt="free 100$ digital ocean credit"></a></div>
+    <footer>Access all the data from your phone. Works 100% offline and has no third party analytics.<br><a href="https://apps.apple.com/us/app/linux-command-library/id1219649976"><img src="/images/app_store.svg" alt="Apple App Store" class="download-icon"></a> <a href="https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca"><img src="/images/en_badge_web_generic.png" alt="Google Play Store" class="download-icon"></a><br>Simon Schubert - sschubert89@gmail.com
+      <div style="width: 100%; justify-content: center; padding-top: 6px; display: flex; align-items: center; gap: 6px;">My other projects: 
+        <div class="project"><a href="https://coindodo.io" target="_blank"><img src="/images/project-coindodo.png" title="Linux Command Library"></a></div>
+        <div class="project"><a href="https://whatch.online" target="_blank"><img src="/images/project-whatch.png" title="whatch.online"></a></div>
+      </div>
+    </footer>
+  </body>
+</html>
